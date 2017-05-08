@@ -7,8 +7,8 @@ describe('pricing-tool App', () => {
     page = new PricingToolPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display message saying Pricing Calculator', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getParagraphText()).toEqual('Pricing Calculator');
   });
 });
