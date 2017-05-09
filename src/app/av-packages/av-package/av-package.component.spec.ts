@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AvPackageComponent } from './av-package.component';
-import { AvPackage } from '../av-package';
+import { AvPackage } from '../av-package.model';
 
 describe('AvPackageComponent', () => {
   let component: AvPackageComponent;

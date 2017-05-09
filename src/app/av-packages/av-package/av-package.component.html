@@ -2,11 +2,12 @@
   <h3>{{avPackage.name}}</h3>
   <ul>
   	<li>{{avPackage.projector ? avPackage.projector.name : 'Projector: None Selected'}}</li>
-  	<li *ngIf="!avPackage.projector">Projector Mount</li>
+  	<li *ngIf="avPackage.projector">Projector Mount</li>
   	<li>{{avPackage.screen ? avPackage.screen.name : 'Screen: None Selected'}}</li>
   	<li>{{avPackage.receiver ? avPackage.receiver.name : 'Receiver: None Selected'}}</li>
   	<li>{{(avPackage.soundSystem && avPackage.speakerSystem) ? avPackage.soundSystem + ' ' + avPackage.speakerSystem.name: 'Speakers: None Selected'}}</li>
   	<li>{{avPackage.controlSystem ? avPackage.controlSystem.name: 'Control: None Selected'}}</li>
   </ul>
   <div><b>Total: {{avPackage.getTotalPrice()}}</b></div>
+  <a [routerLink]="['/av-packages/customize', avPackage.name]">Customize</a>
 </div>

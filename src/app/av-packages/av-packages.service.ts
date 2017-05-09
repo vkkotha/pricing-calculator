@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {AvPackageItem} from './av-package-item';
-import {AvPackage} from './av-package';
+import {AvPackageItem} from './av-package-item.model';
+import {AvPackage} from './av-package.model';
 
 @Injectable()
 export class AvPackagesService {
@@ -8,7 +8,8 @@ export class AvPackagesService {
   private strPackageItems: string = `
   	Sony-1080p-1,Sony 45E 1080p Projector,Projector,1999.23
   	Denon-7.1-1,Denon S950W 7.1 Receiver,Receiver,599.94
-    Martin-1,Martin Logan SX Series Speakers and Subwoofer,Speakers,1200.00
+    Martin-1,Martin Logan SX Series Speakers and Subwoofer,SpeakerSystem,1200.00
+    B&W-1,B&W Premium Series Speakers and Subwoofer,SpeakerSystem,3200.00
   `;
 
   private packageItems: AvPackageItem[];
@@ -58,7 +59,7 @@ export class AvPackagesService {
   	return this.packageItems;
   }
 
-  getCategoryItems(category: string): AvPackageItem[] {
+  getItemsByCategory(category: string): AvPackageItem[] {
   	return this.packageItems.filter(item => {
   		return item.category.toUpperCase() === category.toUpperCase();
   	});
@@ -74,17 +75,25 @@ export class AvPackagesService {
   }
 
   createAvPackage(name: string, items: any): AvPackage {
-	const pack = new AvPackage(name);
-	pack.soundSystem = items['soundSystem'];
-	pack.projector = this.getItemByCode(items['projector']);
-	pack.screen = this.getItemByCode(items['screen']);
-	pack.receiver = this.getItemByCode(items['receiver']);
-	pack.speakerSystem = this.getItemByCode(items['speakerSystem']);
-	pack.controlSystem = this.getItemByCode(items['controlSystem']);
-	return pack;
+  	const pack = new AvPackage(name);
+  	pack.soundSystem = items['soundSystem'];
+  	pack.projector = this.getItemByCode(items['projector']);
+  	pack.screen = this.getItemByCode(items['screen']);
+  	pack.receiver = this.getItemByCode(items['receiver']);
+  	pack.speakerSystem = this.getItemByCode(items['speakerSystem']);
+  	pack.controlSystem = this.getItemByCode(items['controlSystem']);
+  	return pack;
   }
 
   getSamplePackages(): AvPackage[] {
   	return this.samplePackages;
+  }
+
+  getSamplePackageByName(packageName: string): AvPackage {
+    let matchIndex: number = this.samplePackages.findIndex(item => item.name.toUpperCase() === packageName.toUpperCase());
+    if (matchIndex >= 0) {
+      return this.samplePackages[matchIndex];
+    }
+    return null;
   }
 }

@@ -1,0 +1,42 @@
+<div>
+  <h3>{{selectedPackage.name}}</h3>
+  <ul class="package-form">
+    <div class="row form-group">
+      <div class="col-lg-3">
+        <label for="projector">Projector</label>
+        <select class="form-control" id="projector" required [(ngModel)]="selectedPackage.projector">
+          <option *ngFor="let projector of projectors" [value]="projector">{{projector.name}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="row form-group">
+    	<div class="col-lg-3">
+        <label for="projector">Screen</label>
+        <select class="form-control" id="screen" required [(ngModel)]="selectedPackage.screen">
+          <option *ngFor="let screen of screens" [value]="screen">{{screen.name}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-lg-3">
+        <label for="receiver">Receiver</label>
+        <select class="form-control" id="receiver" required [(ngModel)]="selectedPackage.receiver">
+          <option *ngFor="let receiver of receivers" [value]="receiver">{{receiver.name}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-lg-3">
+        <label for="speakerSystem">Speakers</label>
+        <select class="form-control" id="speakerSystem" required [(ngModel)]="selectedPackage.speakerSystem">
+          <option *ngFor="let speakerSystem of speakerSystems" [value]="speakerSystem">{{speakerSystem.name}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-lg-3">{{selectedPackage.controlSystem ? selectedPackage.controlSystem.name: 'Control: None Selected'}}</div>
+    </div>
+  </ul>
+  <div><b>Total: {{selectedPackage.getTotalPrice()}}</b></div>
+  <a routerLink="/av-packages">Back</a>
+</div>

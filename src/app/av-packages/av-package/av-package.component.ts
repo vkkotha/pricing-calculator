@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AvPackage } from '../av-package';
+import { AvPackage } from '../av-package.model';
 
 @Component({
   selector: 'app-av-package',

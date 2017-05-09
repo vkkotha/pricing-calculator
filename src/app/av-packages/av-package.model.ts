@@ -1,4 +1,4 @@
-import {AvPackageItem} from './av-package-item';
+import {AvPackageItem} from './av-package-item.model';
 
 export class AvPackage {
 	name: string;

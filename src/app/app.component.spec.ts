@@ -1,17 +1,29 @@
 import { TestBed, async } from '@angular/core/testing';
+import { Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { AppComponent } from './app.component';
-import { AvPackagesComponent } from './av-packages/av-packages.component';
-import { AvPackageComponent } from './av-packages/av-package/av-package.component';
+//import { AvPackageListComponent } from './av-packages/av-package-list/av-package-list.component';
+//import { AvPackageComponent } from './av-packages/av-package/av-package.component';
+
+class MockRouter {
+    navigateByUrl(url: string) { return url; }
+}
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent,
-        AvPackagesComponent,
-        AvPackageComponent
+        AppComponent
+        //AvPackageListComponent,
+        //AvPackageComponent
       ],
+      providers: [
+        { provide: Router, useClass: MockRouter }
+      ],
+      imports: [
+        RouterTestingModule
+      ]
     }).compileComponents();
   }));
 

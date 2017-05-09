@@ -1,21 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AvPackagesComponent } from './av-packages.component';
-import { AvPackageComponent } from './av-package/av-package.component';
+import { AvPackageListComponent } from './av-package-list.component';
+import { AvPackageComponent } from '../av-package/av-package.component';
 
 describe('AvPackagesComponent', () => {
-  let component: AvPackagesComponent;
-  let fixture: ComponentFixture<AvPackagesComponent>;
+  let component: AvPackageListComponent;
+  let fixture: ComponentFixture<AvPackageListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AvPackagesComponent, AvPackageComponent ]
+      declarations: [ AvPackageListComponent, AvPackageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AvPackagesComponent);
+    fixture = TestBed.createComponent(AvPackageListComponent);
     component = fixture.componentInstance;
     component.ngOnInit();
     fixture.detectChanges();

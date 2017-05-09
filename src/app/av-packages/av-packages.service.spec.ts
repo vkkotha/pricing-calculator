@@ -16,12 +16,12 @@ describe('AvPackagesService', () => {
   	expect(service.getAllItems().length).toBeGreaterThan(0);
   }));
 
-  it('should getCategoryItems for Projector', inject([AvPackagesService], (service: AvPackagesService) => {
-  	expect(service.getCategoryItems('Projector').length).toBeGreaterThan(0);
+  it('should getItemsByCategory for Projector', inject([AvPackagesService], (service: AvPackagesService) => {
+  	expect(service.getItemsByCategory('Projector').length).toBeGreaterThan(0);
   }));
 
-  it('should getCategoryItems for invalid cateogry', inject([AvPackagesService], (service: AvPackagesService) => {
-  	expect(service.getCategoryItems('invalid').length).toEqual(0);
+  it('should getItemsByCategory for invalid cateogry', inject([AvPackagesService], (service: AvPackagesService) => {
+  	expect(service.getItemsByCategory('invalid').length).toEqual(0);
   }));
 
   it('should getItemByCode for Sony-1080p-1 should return the item', inject([AvPackagesService], (service: AvPackagesService) => {
